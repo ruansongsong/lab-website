@@ -1,0 +1,37 @@
+@import "../base/variable/global.less";
+@import "../base/mixin/setOnepx.less";
+.button-columns{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background: #fff;
+  &:before{
+    .setTopLine(@globalTextColor);
+  }
+  .button-column{
+    flex: 1;
+    height: 44px;
+    color: @globalTextColor;
+    font-size: 16px;
+    text-align: center;
+    line-height: 44px;
+    border-right: 1px @globalTextColor solid;
+    svg {
+      vertical-align: text-bottom;
+    }
+    &:before{
+      .setLeftLine(@globalTextColor);
+    }
+    &:after{
+      .setRightLine(@globalTextColor);
+    }
+    &:active{
+      background: #ddd;
+    }
+
+  }
+}
