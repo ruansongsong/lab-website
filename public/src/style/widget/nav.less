@@ -1,0 +1,26 @@
+@import "../base/variable/global.less";
+@linkColor:#006699;
+nav {
+	float: left;
+	width: 20%;
+	border: 1px solid @globalLineColor;
+	background: #eee;
+
+	ul {
+		li {
+			border-bottom: 1px solid @globalLineColor;
+			list-style: none;
+			line-height: 1.5;
+			a  {
+				display: block;
+				overflow: hidden;
+				padding: 2px 0 2px 10px;
+				font-size: 16px;
+				color:@linkColor;
+				transition: .2s ease-out;
+				cursor: pointer;
+			}
+		}
+
+	}
+}
