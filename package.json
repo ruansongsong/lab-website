@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "gulp-rev": "^7.1.2",
-    "gulp-rev-collector": "^1.0.5"
+    "gulp-rev-collector": "^1.0.5",
+    "mongodb": "^2.2.10"
   }
 }

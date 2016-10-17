@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/style/lab-c04211be13.min.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <p>
-      <%= detail %>
-    </p>
-    <p>
-      <%= detail %>
-    </p>
-  </body>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Enzyme & Biocatalysis Research Group</title>
+	<link rel="stylesheet" href="/style/lab.min.css" media="screen" title="no title">
+</head>
+<body>
+	<!-- header -->
+	<%- include ./widget/header.ejs %>
+	<div class="wrap">
+		<%- include ./widget/nav.ejs %>
+		<%- include ./widget/content.ejs %>
+	</div>
+	<%- include ./widget/footer.ejs %>
+</body>
 </html>

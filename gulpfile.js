@@ -17,29 +17,33 @@ gulp.task('less', function () {
 	.pipe(rename(function (path) {
 		path.basename += '.min';
 	}))
-	.pipe(rev())
 	.pipe(gulp.dest('./public/style/'))
-	.pipe(rev.manifest())
-	.pipe(gulp.dest('./public/src/rev/'))
 	.pipe(browserSync.reload({stream: true}));
 });
-// gulp.task('watch', function () {
-// 	gulp.watch('less_learn/src/*.less', ['less']);
-// })
-// gulp.task('server', function () {
-// 	browserSync.init({
-// 		server:{
-// 			baseDir: "less_learn/dist/"
-// 		}
-// 	});
-// });
-// gulp.task('test', function () {
-// 	gulp.start('server');
-// 	gulp.start('watch');
-// })
+gulp.task('revCss', function () {
+	gulp.src('./public/style/lab.min.css')
+	.pipe(rev())
+	.pipe(rev.manifest())
+	.pipe(gulp.dest('./public/style/'))
+})
 
-gulp.task('rev', function () {
-	gulp.src(['./public/src/rev/*.json', './views/*.ejs'])
+gulp.task('rev', ['revCss'], function () {
+	gulp.src(['./public/style/*.json', './views/index.ejs'])
 	.pipe(revCollector())
 	.pipe(gulp.dest('./views/'));
+})
+// gulp.task('default', ['less', 'rev']);
+gulp.task('watch', function () {
+	gulp.watch('./public/src/style/**/*.less', ['less']);
+})
+gulp.task('server', function () {
+	browserSync.init({
+		server:{
+			baseDir: "./public/"
+		}
+	});
+});
+gulp.task('test', function () {
+	gulp.start('server');
+	gulp.start('watch');
 })
